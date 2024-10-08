@@ -13,4 +13,4 @@ if (empty($nonExistentVar)) {
 } else {
     echo "Array terdefinisi dan tidak kosong.";
 }
-
+?>
