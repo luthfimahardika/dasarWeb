@@ -5,7 +5,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h2>Form Contoh</h2>
+    <h2>Form Contoh</h2>   
     <form id="myForm">
         <label for="buah">Pilih Buah:</label>
         <select name="buah" id="buah">
