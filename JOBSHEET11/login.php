@@ -100,6 +100,7 @@ include "fungsi/pesan_kilat.php";
             display: block !important;
         }
     </style>
+
     <!-- Custom styles for this template -->
     <link href="assets/custom/sign-in.css" rel="stylesheet">
 </head>
@@ -185,7 +186,7 @@ include "fungsi/pesan_kilat.php";
             </div>
 
             <button class="btn btn-primary w-100 py-2" type="submit">Masuk</button>
-            <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
+            <p class="mt-5 mb-3 text-body-secondary">&copy; 2017- 2023</p>
         </form>
     </main>
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>

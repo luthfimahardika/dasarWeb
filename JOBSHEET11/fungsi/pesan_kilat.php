@@ -40,3 +40,4 @@ function pesan($key = '', $pesan = '') {
         </div>');
     }
 }
+?>

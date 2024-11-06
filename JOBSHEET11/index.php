@@ -2,7 +2,7 @@
 if (session_status() === PHP_SESSION_NONE)
     session_start();
 
-if (empty($_SESSION['level'])) {
+if (!empty($_SESSION['level'])) {
     require 'config/koneksi.php';
     require 'fungsi/pesan_kilat.php';
 
@@ -16,3 +16,4 @@ if (empty($_SESSION['level'])) {
 } else {
     header("Location: login.php");
 }
+?>
