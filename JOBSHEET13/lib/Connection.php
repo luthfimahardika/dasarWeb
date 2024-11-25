@@ -1,25 +1,36 @@
-<?php 
-    $username = 'root';
+<?php
+    $use_driver = 'sqlsrv'; // mysql atau sqlsrv
+    
+    $host = "AXIOOPONGO";
+    $username = ''; //'sa';
     $password = '';
-    $database = 'dasar_web';
+    $database = 'master';
+    $db;
 
-    try{
-        $db = new mysqli('localhost', $username, $password, $database);
-        if ($db->connect_error) {
-            die('Connection DB failed: '. $db->connect_error);
+    if($use_driver == 'mysql'){
+        try{
+            $db = new mysqli('localhost', $username, $password, $database);
+            if($db->connect_error){
+                die('Connection DB failed: ' . $db->connect_error);
+            }
+        }catch(Exception $e){
+            die($e->getMessage());
         }
-    }catch(Exception $e) {
-        die($e->getMessage());
-    }
+    } else if($use_driver == 'sqlsrv'){
+        $credential = [
+            'Database' => $database,
+            'UID' => $username,
+            'PWD' => $password
+        ];
 
-    function getKategori() {
-        global $db;
-        $query = "SELECT * FROM m_kategori ORDER BY kategori_nama ASC";
-        $result = $db->query($query);
-        $kategori = [];
-        while ($row = $result->fetch_assoc()) {
-            $kategori[] = $row;
+        try{
+            $db = sqlsrv_connect($host, $credential);
+
+            if (!$db){
+                $msg = sqlsrv_errors();
+                die($msg[0]['message']);
+            }
+        }catch(Exception $e){
+            die($e->getMessage());
         }
-        return $kategori;
     }
-?>
